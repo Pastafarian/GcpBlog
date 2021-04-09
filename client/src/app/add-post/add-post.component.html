@@ -1,0 +1,28 @@
+<mat-card>
+
+    <form [formGroup]="formGroup" (ngSubmit)="save(formGroup)">
+
+        <mat-form-field class="full-width"
+            [ngClass]="{'has-error': (formGroup.get('title')?.touched || formGroup.get('title')?.dirty) }">
+            <input type="text" matInput formControlName="title" placeholder="Title (required)">
+            <mat-error align="end">Please enter a title</mat-error>
+            <mat-hint align="end">{{ formGroup.get('title')?.value.length }} / 50</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <textarea rows="5" matInput formControlName="body" placeholder="Body (required)"></textarea>
+            <mat-error *ngIf="formGroup.get('body')?.hasError('required')" align="end">Please enter a body
+            </mat-error>
+        </mat-form-field>
+
+        <div class="buttons">
+            <button mat-button [routerLink]="['/']">
+                Back
+            </button>
+
+            <button color="primary" mat-button type="submit" title="Submit">
+                Submit
+            </button>
+        </div>
+    </form>
+</mat-card>

@@ -1,0 +1,41 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div.buttons {
+    text-align: right;
+}
+
+
+mat-card {
+    width:80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form and validation */
+
+mat-form-field {
+	width: 100%;
+}
+
+.mat-error {
+	/*scss this*/
+	color: #ff2e16;
+}
+
+.mat-form-field-invalid .mat-form-field-placeholder {
+	/*scss this*/
+	color: #ff2e16;
+}
+
+.mat-form-field-invalid .mat-form-field-ripple {
+	/*scss this*/
+	background-color: #ff2e16;
+}
+
+.mat-form-field-valid .mat-form-field-ripple {
+	background-color: #02b758;
+}
