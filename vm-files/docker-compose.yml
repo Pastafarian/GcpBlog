@@ -10,12 +10,8 @@ services:
       - "5439:5432"
     volumes:
       - database-data:/var/lib/postgresql/data/
-    networks:
-      - network
   api:
     image: stephenadam/devblog_api:latest
-    networks:
-      - network
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     depends_on:
@@ -38,13 +34,8 @@ services:
       - "80:80"
       - "443:443"
     command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
-    networks:
-      - network
     depends_on:
-      - database
+      - api
 volumes:
   database-data:
-  node-modules:
-networks:
-  network:
-    driver: bridge
+ 
