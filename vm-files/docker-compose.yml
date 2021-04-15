@@ -11,10 +11,9 @@ services:
     volumes:
       - database-data:/var/lib/postgresql/data/
   api:
-    image: stephenadam/devblog_api:latest
+    image: stephenadam/gcpblog_api:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://+:8800
     depends_on:
       - database
   certbot:
